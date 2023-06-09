@@ -22,6 +22,11 @@
             <div class="card-body">
               <div class="d-flex justify-content-between">
                 <h5 class="card-title">Datatables</h5>
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
                 <div>
                   <a href="/addService" type="button" class="btn btn-outline-success mt-3">Add New Service</a>
                 </div>

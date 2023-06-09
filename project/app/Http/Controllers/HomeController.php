@@ -68,7 +68,8 @@ class HomeController extends Controller
         $bookingDuration = $checkIn->diffInDays($checkOut);
         $newBooking->setTotalPrice($newBooking["room"]->getPrice()*$bookingDuration);
         $newBooking->save();
-        
+        session()->flash('success', 'Booking added successfully!');
+
         return redirect()->route('yourReservations');
     }
     public function yourReservations(){

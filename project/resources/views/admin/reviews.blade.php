@@ -21,6 +21,11 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Datatables</h5>
+              @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
               <!-- Table with stripped rows -->
               <table class="table table-striped">
                 <thead>

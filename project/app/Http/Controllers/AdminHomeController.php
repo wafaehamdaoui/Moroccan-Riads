@@ -59,6 +59,7 @@ class AdminHomeController extends Controller
     public function deleteBooking($id)
     {
         Booking::destroy($id);
+        session()->flash('success', 'Booking deleted successfully!');
         return back();
     }
     public function editBooking($id)
@@ -78,6 +79,8 @@ class AdminHomeController extends Controller
         $booking->setTotalPrice($request->input('total_price'));
         $booking->setStatus($request->input('payement_status'));
         $booking->save();
+        session()->flash('success', 'Booking edited successfully!');
+
         return redirect()->route('admin.bookings');
     }
 
@@ -110,7 +113,10 @@ class AdminHomeController extends Controller
             $newRiad->setImage($imageName);
             $newRiad->save();
         }
+        session()->flash('success', 'Riad added successfully!');
+
         return redirect()->route('admin.riads');
+        
     }
 
     public function addRiad()
@@ -123,6 +129,7 @@ class AdminHomeController extends Controller
     public function deleteRiad($id)
     {
         Riad::destroy($id);
+        session()->flash('success', 'Riad deleted successfully!');
         return back();
     }
     public function editRiad($id)
@@ -150,6 +157,8 @@ class AdminHomeController extends Controller
             
 
         $riad->save();
+        session()->flash('success', 'Riad edited successfully!');
+
         return redirect()->route('admin.riads');
     }
 
@@ -195,6 +204,8 @@ class AdminHomeController extends Controller
             $newRoom->setImage($imageName);
             $newRoom->save();
         }
+        session()->flash('success', 'Room added successfully!');
+
         return redirect()->route('admin.rooms');
     }
 
@@ -211,6 +222,7 @@ class AdminHomeController extends Controller
     public function deleteRoom($id)
     {
         Room::destroy($id);
+        session()->flash('success', 'Room deleted successfully!');
         return back();
     }
     public function editRoom($id)
@@ -241,6 +253,8 @@ class AdminHomeController extends Controller
             
 
         $room->save();
+        session()->flash('success', 'Room edited successfully!');
+
         return redirect()->route('admin.rooms');
     }
 
@@ -281,12 +295,15 @@ class AdminHomeController extends Controller
             $newCategory->setImage($imageName);
             $newCategory->save();
         }
+        session()->flash('success', 'Category added successfully!');
+
         return redirect()->route('admin.categories');
     }
 
     public function deleteCategory($id)
     {
         Category::destroy($id);
+        session()->flash('success', 'Category deleted successfully!');
         return back();
     }
     public function editCategory($id)
@@ -313,6 +330,8 @@ class AdminHomeController extends Controller
             
 
         $category->save();
+        session()->flash('success', 'Category edited successfully!');
+
         return redirect()->route('admin.categories');
     }
 
@@ -342,13 +361,14 @@ class AdminHomeController extends Controller
         $newUser->setPassword($request->input('password'));
         $newUser->setPassword($request->input('role'));
         $newUser->save();
-        
+        session()->flash('success', 'User added successfully!');
         return redirect()->route('admin.users');
     }
 
     public function deleteUser($id)
     {
         User::destroy($id);
+        session()->flash('success', 'User deleted successfully!');
         return back();
     }
     public function editUser($id)
@@ -367,6 +387,8 @@ class AdminHomeController extends Controller
         $user->setPassword($request->input('password'));    
 
         $user->save();
+        session()->flash('success', 'User edited successfully!');
+
         return redirect()->route('admin.users');
     }
 
@@ -380,6 +402,7 @@ class AdminHomeController extends Controller
     public function deleteReview($id)
     {
         Review::destroy($id);
+        session()->flash('success', 'Review deleted successfully!');
         return back();
     }
     public function services(){
@@ -406,7 +429,8 @@ class AdminHomeController extends Controller
         $newService->setPrice($request->input('price'));
         $newService->setDescription($request->input('description'));
         $newService->save();
-        
+        session()->flash('success', 'Service added successfully!');
+
         return redirect()->route('admin.services');
     }
 
@@ -414,6 +438,7 @@ class AdminHomeController extends Controller
     public function deleteService($id)
     {
         Service::destroy($id);
+        session()->flash('success', 'Service deleted successfully!');
         return back();
     }
     public function editService($id)
@@ -432,6 +457,8 @@ class AdminHomeController extends Controller
         $service->setDescription($request->input('description'));        
 
         $service->save();
+        session()->flash('success', 'Service edited successfully!');
+
         return redirect()->route('admin.services');
     }
 

@@ -6,6 +6,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+
                     <div class="breadcrumb-text">
                         <h2>Your Reservations</h2>
                         <div class="bt-option">
@@ -23,6 +29,7 @@
     <section class="rooms-section spad">
         <div class="container">
             <div class="row">
+
             @foreach ($viewData["bookings"] as $booking)
                <div class="col-lg-4 col-md-6">
                     <div class="room-item">
